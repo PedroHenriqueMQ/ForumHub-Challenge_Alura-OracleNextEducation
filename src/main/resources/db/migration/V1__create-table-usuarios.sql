@@ -1,7 +1,7 @@
 CREATE TABLE usuarios(
     id BIGINT NOT NULL AUTO_INCREMENT,
-    email VARCHAR NOT NULL,
-    senha VARCHAR NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
 
     PRIMARY KEY(id)
 );
