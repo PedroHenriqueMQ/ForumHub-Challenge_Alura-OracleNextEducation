@@ -2,7 +2,6 @@ package education.next.oracle.forumhub.domain.model;
 
 import education.next.oracle.forumhub.domain.dto.TopicoDTO;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

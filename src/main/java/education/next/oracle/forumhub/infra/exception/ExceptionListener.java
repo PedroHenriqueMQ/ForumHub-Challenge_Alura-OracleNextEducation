@@ -1,7 +1,10 @@
 package education.next.oracle.forumhub.infra.exception;
 
+import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import jakarta.persistence.EntityExistsException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -30,5 +33,20 @@ public class ExceptionListener {
         );
 
         return ResponseEntity.status(422).body(mensagemErro);
+    }
+
+    @ExceptionHandler(JWTCreationException.class)
+    public ResponseEntity tratarErro500CreateToken (JWTCreationException ex) {
+        return ResponseEntity.status(500).body("Erro na geração de token: " + ex.getMessage());
+    }
+
+    @ExceptionHandler(JWTVerificationException.class)
+    public ResponseEntity tratarErro401InvalidToken (JWTVerificationException ex) {
+        return ResponseEntity.status(401).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity tratarErro404InvalidUsername (UsernameNotFoundException ex) {
+        return ResponseEntity.status(404).body(ex.getMessage());
     }
 }
