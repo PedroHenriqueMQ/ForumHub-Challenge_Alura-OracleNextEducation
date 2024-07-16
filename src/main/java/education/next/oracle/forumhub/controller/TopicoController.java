@@ -4,6 +4,7 @@ import education.next.oracle.forumhub.domain.dto.TopicoDTO;
 import education.next.oracle.forumhub.domain.dto.TopicoDetalhadoDTO;
 import education.next.oracle.forumhub.domain.model.Topico;
 import education.next.oracle.forumhub.domain.service.TopicoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.List;
 import java.util.Optional;
 
+@SecurityRequirement(name = "bearer-key")
 @RestController
 @RequestMapping("/api/topicos")
 public class TopicoController {

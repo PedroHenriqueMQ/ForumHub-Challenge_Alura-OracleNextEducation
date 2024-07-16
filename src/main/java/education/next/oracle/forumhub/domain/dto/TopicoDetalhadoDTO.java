@@ -2,7 +2,6 @@ package education.next.oracle.forumhub.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import education.next.oracle.forumhub.domain.model.Topico;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

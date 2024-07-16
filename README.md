@@ -1,5 +1,5 @@
 # ForumHub
-É uma api que simula o fórum da alura.
+É uma api que simula o fórum da alura, onde os alunos podem fazer publicações sobre quaisquer temas.
 
 ## 🔨 Funcionalidades do projeto
 1. Criar um novo tópico
@@ -7,6 +7,7 @@
 3. Buscar um tópico específico
 4. Atualizar um tópico
 5. Excluir um tópico
+6. Autenticação de usuário
 
 ## ✔️ Tecnologias utilizadas
 - Linguagem de programação Java
