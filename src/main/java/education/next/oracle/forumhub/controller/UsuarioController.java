@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +25,11 @@ public class UsuarioController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity efetuarLogin(@RequestBody @Valid UsuarioDTO usuarioDTO) {
+    public ResponseEntity<TokenDTO> efetuarLogin(@RequestBody @Valid UsuarioDTO usuarioDTO) {
         var authenticationToken = new UsernamePasswordAuthenticationToken(usuarioDTO.email(), usuarioDTO.senha());
-        var authentication = manager.authenticate(authenticationToken);
+        Authentication authentication = manager.authenticate(authenticationToken);
+
+        if (!authentication.isAuthenticated()) ResponseEntity.unprocessableEntity().body(usuarioDTO);
 
         var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 

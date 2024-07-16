@@ -34,8 +34,8 @@ public class TokenService {
 
     public String getSubject(String tokenJWT) {
         try {
-            var algoritmo = Algorithm.HMAC256(secret);
-            return JWT.require(algoritmo)
+            var algorithm = Algorithm.HMAC256(secret);
+            return JWT.require(algorithm)
                     .withIssuer("ForumHub API")
                     .build()
                     .verify(tokenJWT)
@@ -48,5 +48,4 @@ public class TokenService {
     private Instant dataExpiracao() {
         return LocalDateTime.now().plusHours(1).toInstant(ZoneOffset.of("-03:00"));
     }
-
 }

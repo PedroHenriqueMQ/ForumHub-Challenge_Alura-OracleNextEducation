@@ -13,7 +13,7 @@
 - Spring Framework
 - Banco de dados MySQL
 - Lombok
-- Spring Security (Ainda não 100% funcional)
+- Spring Security
 - Spring WebApplication
 - Spring JPA
 - Spring Flyway
