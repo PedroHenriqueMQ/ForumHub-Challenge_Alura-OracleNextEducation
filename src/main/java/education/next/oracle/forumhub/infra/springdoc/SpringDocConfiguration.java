@@ -10,7 +10,6 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.springframework.context.annotation.Bean;
 
-
 @OpenAPIDefinition(
         info = @Info(
                 title = "ForumHub API",
@@ -23,7 +22,7 @@ import org.springframework.context.annotation.Bean;
         )
 )
 @SecurityScheme(
-        name = "Permissão de Acesso",
+        name = "bearer-key",
         description = "Token JWT de autorização",
         scheme = "bearer",
         type = SecuritySchemeType.HTTP,
